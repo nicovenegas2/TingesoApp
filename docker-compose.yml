@@ -1,0 +1,27 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  mysql-db:
+    image: mysql
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/mysql
+      - ./files/DummyEmployee.sql:/docker-entrypoint-initdb.d/DummyEmployee.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: tingeso
+    ports:
+      - 33061:3306
+  tingesoapp:
+    container_name: mysql-db-data
+    image: nicovenegas/tingesoapp
+    ports:
+      - "8090:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/tingeso
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=admin
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - mysql-db
