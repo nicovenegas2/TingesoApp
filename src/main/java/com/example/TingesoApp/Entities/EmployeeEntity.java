@@ -20,7 +20,7 @@ public class EmployeeEntity {
     @Column(unique = true, name = "id_employees")
     String idEmployees;
 
-    @Column(name = "name")
+    @Column(name = "name_employee")
     String name;
     @Column(name="last_name")
     String last_name;
