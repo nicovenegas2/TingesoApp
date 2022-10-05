@@ -4,7 +4,7 @@ INSERT INTO `categories` (`salary_per_hour`, `name_category`, `salary_per_month`
 
 
 INSERT INTO `employees` (`id_employees`,`name_employee`,`id_category`,`last_name`,`entry_date`,`birth`) VALUES ("13.111.192-3","Thor",3,"Benjamin","2023-09-21","2022-06-23");
-INSERT INTO `employees` (`id_employees`,`name_employee`,`id_category`,`last_name`,`entry_date`,`birth`) VALUES ("93.236.412-8","Steel",3,"Emerson","2021-11-19","2022-02-13"),;
+INSERT INTO `employees` (`id_employees`,`name_employee`,`id_category`,`last_name`,`entry_date`,`birth`) VALUES ("93.236.412-8","Steel",3,"Emerson","2021-11-19","2022-02-13");
 INSERT INTO `employees` (`id_employees`,`name_employee`,`id_category`,`last_name`,`entry_date`,`birth`) VALUES ("36.581.683-8","Jolie",2,"Reid","2021-10-08","2023-07-30");
 INSERT INTO `employees` (`id_employees`,`name_employee`,`id_category`,`last_name`,`entry_date`,`birth`) VALUES ("31.133.396-9","Yen",2,"Coleman","2022-12-05","2022-09-22");
 INSERT INTO `employees` (`id_employees`,`name_employee`,`id_category`,`last_name`,`entry_date`,`birth`) VALUES ("26.822.684-5","Channing",2,"Paul","2022-10-19","2022-11-10");
