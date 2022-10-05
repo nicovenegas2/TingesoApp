@@ -21,7 +21,7 @@ public class EmployeeEntity {
     String idEmployees;
 
     @Column(name = "name_employee")
-    String name;
+    String name_employee;
     @Column(name="last_name")
     String last_name;
     @Column(name="birth")

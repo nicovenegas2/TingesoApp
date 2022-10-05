@@ -4,15 +4,12 @@ package com.example.TingesoApp.Services;
 import com.example.TingesoApp.Entities.CategoryEntity;
 import com.example.TingesoApp.Entities.EmployeeEntity;
 import com.example.TingesoApp.Entities.EmployeeResponse;
-import com.example.TingesoApp.Entities.SalarySheet;
 import com.example.TingesoApp.Repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -40,7 +37,7 @@ public class EmployeeService {
             for(EmployeeEntity em: employeesList){
                 category = categoryService.getById(em.getId_category());
                 cal.setTime(em.getEntry_date());
-                employeeResponse.setName(em.getName());
+                employeeResponse.setName(em.getName_employee());
                 employeeResponse.setBirth(em.getBirth());
                 employeeResponse.setYears_service(year - cal.get(Calendar.YEAR));
                 employeeResponse.setRut(em.getIdEmployees());

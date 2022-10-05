@@ -9,7 +9,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class SalaryService {
@@ -34,7 +33,7 @@ public class SalaryService {
                 salaryHour = salaryPerHour.get(employee.getId_category());
                 salaryMonth = salaryPerMonth.get(employee.getId_category());
                 salarySheet.setRut(employee.getIdEmployees());
-                salarySheet.setName(employee.getName() + " " +employee.getLast_name());
+                salarySheet.setName(employee.getName_employee() + " " +employee.getLast_name());
                 salarySheet.setCategory(categoryName.get(employee.getId_category()));
                 salarySheet.setYears_service(employeeService.years_service(employee.getIdEmployees()));
                 salarySheet.setDiscount_percent(dateService.calculatePercentDiscount(date, employee.getIdEmployees()));
