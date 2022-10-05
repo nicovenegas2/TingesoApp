@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    tools{
+        maven 'mvn'
+    }
+    environment{
+        DOCKERHUB_CREDENTIALS=credentials('springdeploy-user')
+    }
+    stages {
+        stage('Build jar file') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nicovenegas2/TingesoApp.git%27]]])
+                bat 'mvn package spring-boot:repackage -DskipTests'
+            }
+        }
+        stage('Sonar'){
+            steps{
+                withSonarQubeEnv('sonar'){
+                    bat 'mvn sonar:sonar'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+        stage('Build docker image'){
+            steps {
+                bat 'docker build -t nicovenegas/tingesoapp .'
+            }
+        }
+        stage('Login'){
+            steps {
+                bat 'docker login -u %DOCKERHUB_CREDENTIALS_USR% -p %DOCKERHUB_CREDENTIALS_PSW%'
+            }
+        }
+        stage('Push'){
+            steps{
+                bat 'docker push nicovenegas/tingesoapp'
+            }
+        }
+    }
+    post {
+        always {
+            bat 'docker logout'
+        }
+    }
+}

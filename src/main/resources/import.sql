@@ -1,0 +1,1 @@
+create table employees (id_employees varchar(255) not null, birth date, entry_date date, id_category bigint, last_name varchar(255), name varchar(255), primary key (id_employees))

@@ -10,7 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: tingeso
     ports:
-      - 33061:3306
+      - 3306:3306
   tingesoapp:
     container_name: mysql-db-data
     image: nicovenegas/tingesoapp
